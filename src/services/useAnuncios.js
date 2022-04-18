@@ -10,7 +10,7 @@ export const useAnuncios = () => {
   let options = {
     headers: {
       token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjU2ZGY2MzkwNTViOTM1Y2MxMTZmZmUiLCJyb2xlIjoiQURNSU5fUk9MRSIsImlhdCI6MTY1MDIxNjUyMiwiZXhwIjoxNjUwMjMwOTIyfQ.U9uohQxhcrvj9-_xzKkjvtZh0A7rMqRWc_wcAxgfaaU",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjU2ZGY2MzkwNTViOTM1Y2MxMTZmZmUiLCJyb2xlIjoiQURNSU5fUk9MRSIsImlhdCI6MTY1MDMwMzUwMSwiZXhwIjoxNjUwMzE3OTAxfQ.4zQ-Nz0LQiCPKY3r-dSrGj_L-jPmFq6bbk1XnZGhjhU",
     },
   };
 

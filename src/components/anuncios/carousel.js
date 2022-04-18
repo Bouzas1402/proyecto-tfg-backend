@@ -1,20 +1,18 @@
-import Slider from "react-slick";
+import {UncontrolledCarousel} from "reactstrap";
 
-function Carousel({fotos}) {
-  var settings = {
-    dots: true,
-  };
-  console.log(fotos[0].url);
-  return (
-    <div className="container">
-      <Slider {...settings}>
-        {fotos.map((foto) => (
-          <div>
-            <img src={foto.url} />
-          </div>
-        ))}
-      </Slider>
-    </div>
-  );
+function CarouselAnuncio({fotos}) {
+  let fotosCarousel = [];
+  fotos.map((foto, index) => {
+    fotosCarousel.push({
+      altText: `${foto.titulo}`,
+      caption: false,
+      key: `${index + 1}`,
+      src: `${foto.url}`,
+    });
+  });
+
+  console.log(fotosCarousel);
+
+  return <UncontrolledCarousel items={fotosCarousel} />;
 }
-export {Carousel};
+export {CarouselAnuncio};
