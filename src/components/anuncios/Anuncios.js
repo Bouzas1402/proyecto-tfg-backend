@@ -1,7 +1,7 @@
 import React from "react";
 import {nanoid} from "nanoid";
 
-import {Anuncio} from "./Anuncio";
+import {Anuncio} from "./Anuncio.js";
 
 function Anuncios(anuncios) {
   const getAnuncios = anuncios.anuncios;
