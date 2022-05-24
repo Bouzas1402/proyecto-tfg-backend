@@ -1,18 +1,12 @@
-import {UncontrolledCarousel} from "reactstrap";
+import {CarouselItem, CarouselCaption} from "reactstrap";
 
-function CarouselAnuncio({fotos}) {
-  let fotosCarousel = [];
-  fotos.map((foto, index) => {
-    fotosCarousel.push({
-      altText: `${foto.titulo}`,
-      caption: false,
-      key: `${index + 1}`,
-      src: `${foto.url}`,
-    });
-  });
-
-  console.log(fotosCarousel);
-
-  return <UncontrolledCarousel items={fotosCarousel} />;
+function CarouselAnuncio({foto}) {
+  console.log(foto);
+  return (
+    <CarouselItem onExited={function noRefCheck() {}} onExiting={function noRefCheck() {}}>
+      <img alt={foto.altText} src={foto.url}></img>
+      <CarouselCaption captionHeader={foto.altText} captionText={foto.altText} />
+    </CarouselItem>
+  );
 }
 export {CarouselAnuncio};

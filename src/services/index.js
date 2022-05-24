@@ -1,5 +1,7 @@
 const {Api} = require("./api");
-const {useUsuarios} = require("./useUsuarios");
-const {useAnuncios} = require("./useAnuncios");
+const {getAnuncios, guardarAnuncios} = require("./Anuncios");
+const {Usuarios} = require("./Usuarios");
+const {Login} = require("./Login");
+const {Registro} = require("./Register");
 
-export {useUsuarios, useAnuncios, Api};
+export {getAnuncios, guardarAnuncios, Login, Registro, Usuarios, Api};

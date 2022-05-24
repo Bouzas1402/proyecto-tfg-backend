@@ -1,8 +1,9 @@
-const {Usuario} = require("./usuarios/user");
-const {ListUsers} = require("./usuarios/listUsers");
-const {Anuncio} = require("./anuncios/anuncio");
-const {ListAnuncios} = require("./anuncios/listAnuncios");
-const {Carousel} = require("./anuncios/carousel");
+const {TarjetaUsuario} = require("./usuarios/TarjetaUsuario");
+const {Anuncios} = require("./Anuncios/Anuncios");
+const {Carousel} = require("./Anuncios/carousel");
 const {NavTop} = require("./NavTop/navTop");
+const {Login} = require("./Login/Login");
+const {Register} = require("./Register/Register");
+const {Loader} = require("./Loader/Loader");
 
-export {Usuario, ListUsers, Anuncio, ListAnuncios, Carousel, NavTop};
+export {TarjetaUsuario, Anuncios, Login, Register, Carousel, NavTop, Loader};

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {Api} from ".";
 
-export const useUsuarios = () => {
+export const Usuarios = () => {
   const [usuarios, setUsuarios] = useState([]);
   useEffect(() => {
     getUser();
@@ -16,6 +16,7 @@ export const useUsuarios = () => {
 
   const getUser = async () => {
     const res = await Api.get("http://localhost:8000/proyecto/user", options);
+
     console.log(res);
     setUsuarios(res.data.users);
   };
