@@ -6,7 +6,7 @@ import {Anuncios, Loader} from "../components";
 function ListaAnuncios() {
   const [loading, setLoading] = useState(false);
   const [anuncios, setAnuncios] = useState([]);
-
+  console.log("hola");
   useEffect(() => {
     async function get() {
       let getAnuncios = await anunciosServices();
