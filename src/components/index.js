@@ -1,9 +1,9 @@
-const {TarjetaUsuario} = require("./usuarios/TarjetaUsuario");
-const {Anuncios} = require("./Anuncios/Anuncios");
-const {Carousel} = require("./Anuncios/carousel");
-const {NavTop} = require("./NavTop/navTop");
-const {Login} = require("./Login/Login");
-const {Register} = require("./Register/Register");
-const {Loader} = require("./Loader/Loader");
+const {TarjetaUsuario} = require("./usuarios/TarjetaUsuario.js.js");
+const {Anuncios} = require("./Anuncios/Anuncios.js");
+const {Carousel} = require("./Anuncios/carousel.js");
+const {NavTop} = require("./NavTop/navTop.js");
+const {Login} = require("./Login/Login.js");
+const {Register} = require("./Register/Register.js");
+const {Loader} = require("./Loader/Loader.js");
 
 export {TarjetaUsuario, Anuncios, Login, Register, Carousel, NavTop, Loader};
