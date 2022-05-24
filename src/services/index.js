@@ -1,7 +1,7 @@
-const {Api} = require("./api");
-const {getAnuncios, guardarAnuncios} = require("./Anuncios");
-const {Usuarios} = require("./Usuarios");
-const {Login} = require("./Login");
-const {Registro} = require("./Register");
+const {Api} = require("./api.js");
+const {getAnuncios, guardarAnuncios} = require("./Anuncios.js");
+const {Usuarios} = require("./Usuarios.js");
+const {Login} = require("./Login.js");
+const {Registro} = require("./Register.js");
 
 export {getAnuncios, guardarAnuncios, Login, Registro, Usuarios, Api};

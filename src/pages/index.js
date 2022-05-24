@@ -1,7 +1,7 @@
-const {ListaAnuncios} = require("./ListaAnuncios");
-const {Login} = require("./Login");
-const {Register} = require("./Register");
-const {Loader} = require("./Loader");
-const {PerfilUsuario} = require("./PerfilUsuario");
+const {ListaAnuncios} = require("./ListaAnuncios.js");
+const {Login} = require("./Login.js");
+const {Register} = require("./Register.js");
+const {Loader} = require("./Loader.js");
+const {PerfilUsuario} = require("./PerfilUsuario.js");
 
 export {ListaAnuncios, Login, Register, Loader, PerfilUsuario};

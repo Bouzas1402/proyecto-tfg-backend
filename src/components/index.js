@@ -1,4 +1,4 @@
-const {TarjetaUsuario} = require("./usuarios/TarjetaUsuario.js.js");
+const {TarjetaUsuario} = require("./usuarios/TarjetaUsuario.js");
 const {Anuncios} = require("./Anuncios/Anuncios.js");
 const {Carousel} = require("./Anuncios/carousel.js");
 const {NavTop} = require("./NavTop/navTop.js");
