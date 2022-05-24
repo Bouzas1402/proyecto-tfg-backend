@@ -4,7 +4,6 @@ import {Formik, Form, Field, ErrorMessage} from "formik";
 
 import style from "./login.module.css";
 
-import {setStorage} from "../../helpers/localStorage";
 import {useUsuario} from "../../hooks";
 
 const validateFields = (values) => {
