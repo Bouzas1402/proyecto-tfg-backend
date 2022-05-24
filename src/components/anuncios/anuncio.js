@@ -1,10 +1,10 @@
 import {useContext} from "react";
 
-import {guardarAnuncios} from "../../services";
+import {guardarAnuncios} from "../../services/index.js";
 
 import styles from "./anuncio.module.css";
 
-import {Context as TokenContext} from "../../context/TokenContext";
+import {Context as TokenContext} from "../../context/TokenContext.js";
 
 const React = require("react");
 

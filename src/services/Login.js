@@ -1,7 +1,7 @@
 import {Api} from ".";
 
 export const Login = (values) => {
-  const res = Api.post("http://localhost:8000/proyecto/login", {
+  const res = Api.post("https://proyectotfg.herokuapp.com/proyecto/login", {
     correo: values.correo,
     contraseña: values.contraseña,
   });

@@ -36,7 +36,7 @@ export function useUsuario() {
   const comprobarToken = useCallback(() => {
     const token = window.localStorage.getItem("token");
     console.log(token);
-    Api.get("http://localhost:8000/proyecto/comprobarToken", {headers: {token: token}})
+    Api.get("https://proyectotfg.herokuapp.com/proyecto/comprobarToken", {headers: {token: token}})
       .then(() => console.log("Token valido"))
       .catch((err) => {
         deleteStorage();
