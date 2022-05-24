@@ -31,17 +31,17 @@ export function useUsuario() {
     setJWT(null);
     setUsuario(null);
     deleteStorage();
-  }, [setJWT]);
+  }, []);
 
   const comprobarToken = useCallback(() => {
     const token = window.localStorage.getItem("token");
     console.log(token);
-    const res = Api.get("http://localhost:8000/proyecto/comprobarToken", {headers: {token: token}})
+    Api.get("http://localhost:8000/proyecto/comprobarToken", {headers: {token: token}})
       .then(() => console.log("Token valido"))
       .catch((err) => {
         deleteStorage();
       });
-  }, [setJWT]);
+  }, []);
 
   return {
     isLoggedIn: Boolean(jwt),

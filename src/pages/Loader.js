@@ -1,5 +1,4 @@
 import React from "react";
-import {nanoid} from "nanoid";
 
 import {Loader as LoaderComponent} from "../components/index";
 

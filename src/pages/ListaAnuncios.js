@@ -1,5 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
-import {nanoid} from "nanoid";
+import React, {useState, useEffect} from "react";
 
 import {getAnuncios as anunciosServices} from "../services";
 import {Anuncios, Loader} from "../components";

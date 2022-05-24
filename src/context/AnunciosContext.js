@@ -1,7 +1,5 @@
 import React, {useState, createContext} from "react";
 
-import {Anuncios} from "../services";
-
 const Context = createContext({});
 
 function AnunciosContext({children}) {

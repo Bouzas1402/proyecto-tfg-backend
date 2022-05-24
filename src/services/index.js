@@ -1,4 +1,4 @@
-const {Api} = require("./api.js");
+const {Api} = require("./api.jsx");
 const {getAnuncios, guardarAnuncios} = require("./Anuncios.js");
 const {Usuarios} = require("./Usuarios.js");
 const {Login} = require("./Login.js");
