@@ -3,13 +3,11 @@ import styles from "./tarjetausuario.module.css";
 const React = require("react");
 
 function TarjetaUsuario(usuario) {
-  console.log(usuario.usuario);
   const {nombre, PrimerApellido, SegundoApellido, correo} = usuario.usuario;
   const avatar = !usuario.usuario.avatar
     ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAlHBLGg_YWqrd6ffgN5Si7ju2qLQ8TbBzGDXX5H-GG6GW5dG7ptOUnkJ5cjUz_HPfsz4&usqp=CAU"
     : usuario.usuario.avatar;
   const telefono = usuario.usuario.telefono ? usuario.usuario.telefono : "No phone";
-  console.log(typeof avatar, "avatar");
   return (
     <div className={styles.container}>
       <div className={styles.cellphonecontainer}>

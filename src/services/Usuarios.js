@@ -16,8 +16,6 @@ export const Usuarios = () => {
 
   const getUser = async () => {
     const res = await Api.get("https://proyectotfg.herokuapp.com/proyecto/user", options);
-
-    console.log(res);
     setUsuarios(res.data.users);
   };
   return usuarios;

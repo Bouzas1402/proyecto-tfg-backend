@@ -24,7 +24,7 @@ const validateFields = (values) => {
     errors.telefono = "El telefono es obligatorio si quiere ser usuario ventas";
   } else if (values.telefono === "") {
     delete values.telefono;
-  } else if (/\d{9}/.test(values.telefono)) {
+  } else if (/\d{10}/.test(values.telefono)) {
     errors.telefono = "No es un telefono valido";
   }
   // Validacion del correo
@@ -39,6 +39,16 @@ const validateFields = (values) => {
   } else if (values.contraseña.length < 6) {
     errors.contraseña = "La contraseña debe ser de 6 caracteres minimo";
   }
+  if (values.role === "") {
+    values.role = "USER_ROLE";
+  }
+  if (values.SegundoApellido === "") {
+    delete values.SegundoApellido;
+  }
+  if (values.avatar === "") {
+    delete values.avatar;
+  }
+
   return errors;
 };
 
