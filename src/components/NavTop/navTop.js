@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
-import style from "./navTop.module.css";
+import styles from "./navTop.module.css";
 
 import {UsuarioContext} from "../../context/UsuarioContext";
 
@@ -11,18 +11,13 @@ import {ButtonsOff} from "./buttonsOff";
 function NavTop() {
   const {usuario} = useContext(UsuarioContext);
   return (
-    <header className={style.header}>
-      <div className={style.menu}></div>
-      <Link to="/">
-        <img className={style.img} src="" alt="Logo empresa" loading="lazy" />
-      </Link>
-      {usuario ? (
-        <PerfilAvatar value={usuario} />
-      ) : (
-        <nav className={style.nav}>
-          <ButtonsOff />
-        </nav>
-      )}
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <NavLink className={styles.logo} to="/">
+          Bouzas&Pisos
+        </NavLink>
+        {usuario ? <PerfilAvatar value={usuario} /> : <ButtonsOff />}
+      </nav>
     </header>
   );
 }

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-import {getAnuncios as anunciosServices} from "../services";
+import {getAllPaginated} from "../services";
 import {Anuncios, Loader} from "../components";
 
 function ListaAnuncios() {
@@ -8,7 +8,8 @@ function ListaAnuncios() {
   const [anuncios, setAnuncios] = useState([]);
   useEffect(() => {
     async function get() {
-      let getAnuncios = await anunciosServices();
+      let getAnuncios = await getAllPaginated(20, 0);
+      console.log(getAnuncios);
       if (getAnuncios.length > 0) {
         setAnuncios(getAnuncios);
         setLoading(true);

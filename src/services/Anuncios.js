@@ -38,6 +38,23 @@ export const guardarAnuncios = async (idAnuncio) => {
   }
 };
 
+export const getAllPaginated = async (tamPage, numPage) => {
+  try {
+    const res = await Api({
+      url: `${config.DOMAIN}proyecto/anunciospaginated`,
+      method: "GET",
+      params: {
+        tamPage,
+        numPage,
+      },
+    });
+    console.log(res);
+    return res.data.data.result;
+  } catch (err) {
+    return err;
+  }
+};
+
 export const getAnunciosGuardados = async () => {
   const token = getTokenStorage();
   const res = await Api({

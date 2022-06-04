@@ -1,0 +1,9 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "eslint.debug": false,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}

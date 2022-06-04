@@ -5,6 +5,7 @@ const {
   setAnuncios,
   getAnunciosGuardados,
   getAnunciosSubidos,
+  getAllPaginated,
   deleteAnuncioGuardado,
   deleteAnuncio,
 } = require("./Anuncios.js");
@@ -17,6 +18,7 @@ export {
   setAnuncios,
   getAnunciosGuardados,
   getAnunciosSubidos,
+  getAllPaginated,
   deleteAnuncioGuardado,
   deleteAnuncio,
   login,

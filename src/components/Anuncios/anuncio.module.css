@@ -1,71 +1,37 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
-/* center container in the middle */
-
 .container {
   position: relative;
-  margin-top: 20px;
   margin: 20px auto 0 auto;
   overflow: hidden;
-  width: 650px;
-  height: 400px;
-  background: #f5f5f5;
-  box-shadow: 5px 5px 15px rgba(185, 151, 77, 0.5);
+  width: 70%;
+  min-width: 1200px;
+  height: 700px;
+  background: rgb(255, 224, 178);
+  box-shadow: 5px 5px 15px rgba(230, 81, 0);
   border-radius: 10px;
-  text-align: inherit !important;
+  color: rgb(0, 0, 102);
 }
-.p {
-  font-size: 0.6em;
-  color: #baa57e;
-  letter-spacing: 1px;
-}
+
 .h1 {
-  font-size: 1.2em;
-  color: #775b26;
+  font-size: 1.9em;
   margin-top: 12px;
   text-align: center;
+  overflow: hidden;
 }
 .h2 {
-  font-size: 1.7em;
-  color: #baa57e;
-  margin-top: -5px;
+  text-align: center;
+  color: rgb(46, 125, 50);
 }
 .img {
-  width: 290px;
-  margin-top: 25px;
-  margin-left: 20px;
+  width: 45%;
+  margin-top: 50px;
+  margin-left: 50px;
 }
-.slideshowbuttons {
-  top: 70%;
-  display: none;
-}
-.one,
-.two,
-.three,
-.four {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #baa57e;
-}
-.one {
-  left: 22%;
-}
-.two {
-  left: 27%;
-}
-.three {
-  left: 32%;
-}
-.four {
-  left: 37%;
-}
+
 .product {
   position: absolute;
   width: 40%;
-  height: 100%;
   top: 17%;
-  left: 56%;
+  left: 54%;
 }
 .desc {
   text-transform: none;
@@ -78,22 +44,18 @@
   text-align: justify;
 }
 button {
-  background: #baa57e;
+  background: rgb(245, 127, 23);
   padding: 10px;
   display: inline-block;
-  outline: 0;
   border: 0;
-  margin: -1px;
-  border-radius: 2px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #f5f5f5;
-  cursor: pointer;
   margin-top: 156px;
-  margin-left: 50px;
+  margin-left: 18%;
 }
 button:hover {
-  background: #baa57e;
+  background: rgb(250, 182, 161);
   transition: all 0.4s ease-in-out;
 }
 .add,
@@ -104,56 +66,7 @@ button:hover {
   width: 22%;
   margin-left: 12px;
 }
-.sizes {
-  display: grid;
-  color: #baa57e;
-  grid-template-columns: repeat(auto-fill, 30px);
-  width: 60%;
-  grid-gap: 4px;
-  margin-left: 20px;
-  margin-top: 5px;
-}
-.sizes:hover {
-  cursor: pointer;
-}
-.pick {
-  margin-top: 11px;
-  margin-bottom: 0;
-  margin-left: 20px;
-}
-.size {
-  padding: 9px;
-  border: 1px solid #e0c9cb;
-  font-size: 0.7em;
-  text-align: center;
-}
-.size:hover {
-  background: #baa57e;
-  color: #f5f5f5;
-  transition: all 0.4s ease-in-out;
-}
-.focus {
-  background: #baa57e;
-  color: #f5f5f5;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  padding: 10px;
-}
-.footer p {
-  letter-spacing: 3px;
-}
-.footer a {
-  color: #fff;
-  text-decoration: none;
-}
-.footer a:hover {
-  color: #7d7d7d;
-}
+
 .delete {
   background-color: red;
 }
@@ -163,18 +76,15 @@ button:hover {
   list-style: none;
   *list-style: decimal;
   font: 15px "trebuchet MS", "lucida sans";
-  margin-bottom: 4em;
+  margin-top: 4em;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   width: 45%;
   height: 30%;
   text-align: center;
-}
-
-.ul ul {
   margin: 0 0 0 2em;
 }
 
-.ul li {
+.ul .li {
   position: relative;
   display: block;
   margin: 0.5em 0;
@@ -185,15 +95,15 @@ button:hover {
   transition: all 0.3s ease-out;
 }
 
-.ul li:hover {
+.ul .li:hover {
   background: #eee;
 }
 
-.ul li:hover:before {
+.ul .li:hover:before {
   transform: rotate(360deg);
 }
 
-.ul li:before {
+.ul .li:before {
   position: absolute;
   left: -1.3em;
   top: 50%;
