@@ -52,7 +52,6 @@ function PerfilAvatar(props) {
           }
           className={styles.avatar}
           alt="foto"
-          loading="lazy"
         />
       </li>
     </ul>
