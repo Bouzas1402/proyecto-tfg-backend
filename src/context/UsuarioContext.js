@@ -1,11 +1,7 @@
-import React, {useState, createContext} from "react";
+import {createContext} from "react";
 
-const Context = createContext({});
+const UsuarioContext = createContext({
+  usuario: JSON.stringify(localStorage.getItem("usuario")),
+});
 
-function UsuarioContext({children}) {
-  const [usuario, setUsuario] = useState(JSON.parse(localStorage.getItem("usuario")));
-
-  return <Context.Provider value={{usuario, setUsuario}}>{children}</Context.Provider>;
-}
-
-export {Context, UsuarioContext};
+export {UsuarioContext};

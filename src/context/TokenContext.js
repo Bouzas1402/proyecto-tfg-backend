@@ -1,10 +1,7 @@
-import React, {useState, createContext} from "react";
+import {createContext} from "react";
 
-const Context = createContext({});
+const TokenContext = createContext({
+  token: localStorage.getItem("token"),
+});
 
-function TokenContext({children}) {
-  const [jwt, setJWT] = useState(localStorage.getItem("token"));
-  return <Context.Provider value={{jwt, setJWT}}>{children}</Context.Provider>;
-}
-
-export {Context, TokenContext};
+export {TokenContext};

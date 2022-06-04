@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 
 import style from "./register.module.css";
 
-import {Registro} from "../../services";
+import {registro, login} from "../../services";
 
 import {setStorage} from "../../helpers/localStorage";
-import {useUsuario} from "../../hooks";
+
+import {UsuarioContext} from "../../context/UsuarioContext";
+import {TokenContext} from "../../context/TokenContext";
 
 const validateFields = (values) => {
   const errors = {};
@@ -20,7 +22,7 @@ const validateFields = (values) => {
     errors.PrimerApellido = "Es obligatorio un apellido";
   }
   // Validacion del telefono
-  if (values.telefono === "" && values.role === "VENTAS_ROLE") {
+  if (values.telefono === undefined && values.role === "VENTAS_ROLE") {
     errors.telefono = "El telefono es obligatorio si quiere ser usuario ventas";
   } else if (values.telefono === "") {
     delete values.telefono;
@@ -48,7 +50,6 @@ const validateFields = (values) => {
   if (values.avatar === "") {
     delete values.avatar;
   }
-
   return errors;
 };
 
@@ -64,7 +65,8 @@ const initialValues = {
 };
 
 export function Register() {
-  const {login} = useUsuario();
+  const {setUser} = useContext(UsuarioContext);
+  const {setToken} = useContext(TokenContext);
   const navigate = useNavigate();
   return (
     <div id={style.container}>
@@ -73,13 +75,16 @@ export function Register() {
         initialValues={initialValues}
         validate={validateFields}
         onSubmit={async (values, {setFieldError}) => {
-          const createUser = await Registro(values);
+          const createUser = await registro(values);
           if (!createUser.user) {
             setFieldError("usuarioRepetido", "Correo repetido");
           } else {
             setFieldError("usuarioCreado", "CUENTA CREADA, FELICIDADES");
             setTimeout(async () => {
-              const loggind = await login(values.correo, values.contraseña);
+              const user = {correo: values.correo, contraseña: values.contraseña};
+              const loggind = await login(user);
+              setToken(loggind.token);
+              setUser(loggind.usuario);
               setStorage(loggind.token, loggind.usuario);
               navigate("/");
             }, 3000);
@@ -90,6 +95,7 @@ export function Register() {
           <Form>
             <Field className={style.text} name="nombre" placeholder="My nombre" onChange={handleChange} />
             <ErrorMessage className={style.error} name="nombre" component="div" />
+
             <Field className={style.text} name="PrimerApellido" placeholder="Primer Apellido" onChange={handleChange} />
             <ErrorMessage className={style.error} name="PrimerApellido" component="div" />
             <Field
@@ -99,10 +105,13 @@ export function Register() {
               onChange={handleChange}
             />
             <ErrorMessage className={style.error} name="SegundoApellido" component="div" />
+
             <Field className={style.text} name="correo" placeholder="Correo" onChange={handleChange} />
             <ErrorMessage className={style.error} name="correo" component="div" />
+
             <Field className={style.text} name="telefono" placeholder="Telefono" onChange={handleChange} />
             <ErrorMessage className={style.error} name="telefono" component="div" />
+
             <Field
               className={style.text}
               type="password"

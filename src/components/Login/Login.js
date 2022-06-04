@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import {Formik, Form, Field, ErrorMessage} from "formik";
 
 import style from "./login.module.css";
 
-import {useUsuario} from "../../hooks";
+import {UsuarioContext} from "../../context/UsuarioContext";
+import {TokenContext} from "../../context/TokenContext";
+
+import {login} from "../../services";
 
 const validateFields = (values) => {
   const errors = {};
@@ -25,8 +28,11 @@ const validateFields = (values) => {
 const initialValues = {correo: "", contraseña: ""};
 
 export function Login() {
-  const {login} = useUsuario();
   const navigate = useNavigate();
+
+  const {setUser} = useContext(UsuarioContext);
+  const {setToken} = useContext(TokenContext);
+
   return (
     <div id={style.container}>
       <h1 className={style.h1}>Login:</h1>
@@ -34,10 +40,12 @@ export function Login() {
         initialValues={initialValues}
         validate={validateFields}
         onSubmit={async (values, {setFieldError}) => {
-          const loggind = await login(values.correo, values.contraseña);
+          const loggind = await login(values);
           if (!loggind.token) {
             setFieldError("usuarioValido", "No es un usuario valido");
           } else {
+            setUser(loggind.usuario);
+            setToken(loggind.token);
             navigate("/");
           }
         }}

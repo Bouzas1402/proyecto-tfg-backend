@@ -1,27 +1,36 @@
 import {useContext} from "react";
 
-import {guardarAnuncios} from "../../services/index.js";
+import {guardarAnuncios, deleteAnuncioGuardado, deleteAnuncio} from "../../services/index.js";
 
 import styles from "./anuncio.module.css";
 
-import {Context as TokenContext} from "../../context/TokenContext.js";
+import {UsuarioContext} from "../../context/UsuarioContext";
 
 const React = require("react");
 
-function Anuncio(anuncio) {
-  let {jwt} = useContext(TokenContext);
+function Anuncio(props) {
+  let {usuario} = useContext(UsuarioContext);
+  const location = window.location.href;
   const {
-    _id,
-    titulo,
-    descripcion,
-    fotos,
-    direccion: {nombreCalle, piso, portal, provincia, ciudad},
-    caracteristicas: {baños, dormitorios, m2},
-    precioMes,
-  } = anuncio.anuncio;
-
-  const handleClick = async () => {
+    guardado,
+    anuncio: {
+      _id,
+      titulo,
+      descripcion,
+      fotos,
+      direccion: {nombreCalle, piso, portal, provincia, ciudad},
+      caracteristicas: {baños, dormitorios, m2},
+      precioMes,
+    },
+  } = props;
+  const guardar = async () => {
     await guardarAnuncios(_id);
+  };
+  const borrarFavorito = async () => {
+    await deleteAnuncioGuardado(_id);
+  };
+  const borrarAnuncio = async () => {
+    await deleteAnuncio(_id);
   };
 
   return (
@@ -43,8 +52,18 @@ function Anuncio(anuncio) {
         <h1 className={styles.h1}>{titulo}</h1>
         <p className={[styles.desc, styles.p]}>{descripcion}</p>
         <h2 className={styles.h2}>{precioMes} €/mes </h2>
-        {jwt ? (
-          <button className={[styles.add, styles.button]} onClick={handleClick}>
+        {location.includes("/perfil") ? (
+          guardado ? (
+            <button className={[styles.delete, styles.button]} onClick={borrarFavorito}>
+              Quitar Favoritos<small className={styles.like}>✘</small>
+            </button>
+          ) : (
+            <button className={[styles.delete, styles.button]} onClick={borrarAnuncio}>
+              Borrar<small className={styles.like}>♻</small>
+            </button>
+          )
+        ) : usuario ? (
+          <button className={[styles.add, styles.button]} onClick={guardar}>
             Favoritos<small className={styles.like}>♥</small>
           </button>
         ) : (

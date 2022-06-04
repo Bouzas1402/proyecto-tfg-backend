@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import style from "./navTop.module.css";
 
-import {Context as UsuarioContext} from "../../context/UsuarioContext";
+import {UsuarioContext} from "../../context/UsuarioContext";
 
 import {PerfilAvatar} from "./PerfilAvatar";
 import {ButtonsOff} from "./buttonsOff";

@@ -3,12 +3,12 @@ import {nanoid} from "nanoid";
 
 import {Anuncio} from "./Anuncio.js";
 
-function Anuncios(anuncios) {
-  const getAnuncios = anuncios.anuncios;
+function Anuncios(props) {
+  const getAnuncios = props.anuncios;
   return (
     <div>
       {getAnuncios.map((anuncio) => {
-        return <Anuncio anuncio={anuncio} key={nanoid()} />;
+        return <Anuncio anuncio={anuncio} key={nanoid()} guardado={props.guardado} />;
       })}
     </div>
   );

@@ -21,8 +21,7 @@
     "react-slick": "^0.29.0",
     "reactstrap": "^9.0.2",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4",
-    "wouter": "^2.8.0-alpha.2"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts build",

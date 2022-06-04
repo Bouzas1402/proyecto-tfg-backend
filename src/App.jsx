@@ -1,24 +1,36 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-import {ListaAnuncios, Login, Register, PerfilUsuario} from "./pages/index";
+import {ListaAnuncios, Login, Register, PerfilUsuario, RegistroAnuncio} from "./pages/index";
 import {NavTop} from "./components";
-import {useUsuario} from "./hooks";
+import {comprobarToken} from "./services";
 
-import {UsuarioContext, TokenContext, AnunciosContext} from "./context";
+import {getTokenStorage, getUsuarioStorage} from "./helpers/localStorage";
+
+import {AnunciosContext, UsuarioContext, TokenContext} from "./context";
 
 import style from "./App.module.css";
 
 function App() {
-  // const [loading, setLoading] = useState(false);
-  const {comprobarToken} = useUsuario();
-  useEffect(() => {
-    comprobarToken();
-  }, []);
+  const [token, setToken] = useState(getTokenStorage);
+  const [user, setUser] = useState(getUsuarioStorage);
 
+  useEffect(() => {
+    async function getPermisos() {
+      let permisos = await comprobarToken();
+      if (!permisos) {
+        setUser(null);
+        setToken(null);
+      } else {
+        setUser(getUsuarioStorage);
+        setToken(getTokenStorage);
+      }
+    }
+    getPermisos();
+  }, []);
   return (
-    <TokenContext>
-      <UsuarioContext>
+    <TokenContext.Provider value={{token: token, setToken}}>
+      <UsuarioContext.Provider value={{usuario: user, setUser}}>
         <AnunciosContext>
           <div className={style.App}>
             <BrowserRouter>
@@ -27,13 +39,14 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/registro" element={<Register />} />
                 <Route path="/perfil" element={<PerfilUsuario />} />
+                <Route path="/registroanuncio" element={<RegistroAnuncio />} />
                 <Route path="/" element={<ListaAnuncios />} />
               </Routes>
             </BrowserRouter>
           </div>
         </AnunciosContext>
-      </UsuarioContext>
-    </TokenContext>
+      </UsuarioContext.Provider>
+    </TokenContext.Provider>
   );
 }
 

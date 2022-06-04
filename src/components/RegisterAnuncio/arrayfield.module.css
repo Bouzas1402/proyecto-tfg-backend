@@ -1,0 +1,18 @@
+.inputarray,
+.add {
+  height: 50px;
+}
+.inputarray > button,
+.add {
+  margin: 10px 5px;
+}
+.inputarray > button {
+  height: 30px;
+  width: 25px;
+}
+.inputarray > input {
+  width: 300px;
+}
+.add {
+  height: 40px;
+}

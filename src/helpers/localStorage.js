@@ -13,5 +13,5 @@ export const getTokenStorage = () => {
 };
 
 export const getUsuarioStorage = () => {
-  return JSON.stringify(window.localStorage.setItem("usuario"));
+  return JSON.parse(window.localStorage.getItem("usuario"));
 };

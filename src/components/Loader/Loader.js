@@ -6,7 +6,7 @@ export function Loader() {
   return (
     <div className={[style.ldsring, style.div]}>
       <div></div>
-      <div></div>
+      <div>fdfdsfd</div>
       <div></div>
       <div></div>
       <div></div>

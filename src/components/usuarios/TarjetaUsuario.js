@@ -1,8 +1,26 @@
+import {useContext} from "react";
+import {useNavigate} from "react-router-dom";
+
+import {borrar} from "../../services";
+
 import styles from "./tarjetausuario.module.css";
 
+import {UsuarioContext} from "../../context/UsuarioContext";
+import {TokenContext} from "../../context/TokenContext";
 const React = require("react");
 
 function TarjetaUsuario(usuario) {
+  const navigate = useNavigate();
+  const {setUser} = useContext(UsuarioContext);
+  const {setToken} = useContext(TokenContext);
+  const borrarCuenta = async () => {
+    const borrarUser = await borrar();
+    if (borrarUser.msg) {
+      setToken(null);
+      setUser(null);
+      navigate("/");
+    }
+  };
   const {nombre, PrimerApellido, SegundoApellido, correo} = usuario.usuario;
   const avatar = !usuario.usuario.avatar
     ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAlHBLGg_YWqrd6ffgN5Si7ju2qLQ8TbBzGDXX5H-GG6GW5dG7ptOUnkJ5cjUz_HPfsz4&usqp=CAU"
@@ -38,6 +56,9 @@ function TarjetaUsuario(usuario) {
                 </p>
               </div>
             </div>
+            <button className={[styles.add, styles.button]} onClick={borrarCuenta}>
+              Borrar cuenta<small className={styles.like}>X</small>
+            </button>
           </div>
         </div>
       </div>
