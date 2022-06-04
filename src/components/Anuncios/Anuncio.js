@@ -32,7 +32,6 @@ function Anuncio(props) {
   const borrarAnuncio = async () => {
     await deleteAnuncio(_id);
   };
-  console.log(fotos);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>

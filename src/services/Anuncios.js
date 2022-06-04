@@ -48,8 +48,7 @@ export const getAllPaginated = async (tamPage, numPage) => {
         numPage,
       },
     });
-    console.log(res);
-    return res.data.data.result;
+    return res.data.data;
   } catch (err) {
     return err;
   }
