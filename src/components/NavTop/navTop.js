@@ -16,6 +16,7 @@ function NavTop() {
         <NavLink className={styles.logo} to="/">
           Bouzas&Pisos
         </NavLink>
+
         {usuario ? <PerfilAvatar value={usuario} /> : <ButtonsOff />}
       </nav>
     </header>

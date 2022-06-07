@@ -13,6 +13,7 @@ function TarjetaUsuario(usuario) {
   const navigate = useNavigate();
   const {setUser} = useContext(UsuarioContext);
   const {setToken} = useContext(TokenContext);
+
   const borrarCuenta = async () => {
     const borrarUser = await borrar();
     if (borrarUser.msg) {
@@ -21,7 +22,8 @@ function TarjetaUsuario(usuario) {
       navigate("/");
     }
   };
-  const {nombre, PrimerApellido, SegundoApellido, correo} = usuario.usuario;
+  const {nombre, PrimerApellido, SegundoApellido, correo, creacionCuenta} = usuario.usuario;
+  const creacion = new Date(creacionCuenta);
   const avatar = !usuario.usuario.avatar
     ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAlHBLGg_YWqrd6ffgN5Si7ju2qLQ8TbBzGDXX5H-GG6GW5dG7ptOUnkJ5cjUz_HPfsz4&usqp=CAU"
     : usuario.usuario.avatar;
@@ -50,14 +52,13 @@ function TarjetaUsuario(usuario) {
             <div className={styles.mrgrid}>
               <div className={styles.col1}>
                 <p className={styles.moviedescription}>
-                  A group of elderly people are giving interviews about having lived in a climate of crop blight and
-                  constant dust reminiscent of The Great Depression of the 1930's. The first one seen is an elderly
-                  woman stating her father was a farmer, but did not start out that way.
+                  Creacion de la cuenta: {creacion.getDay()}/{creacion.getMonth()}/{creacion.getFullYear()}
                 </p>
               </div>
             </div>
-            <button className={[styles.add, styles.button]} onClick={borrarCuenta}>
-              Borrar cuenta<small className={styles.like}>X</small>
+
+            <button className={styles.buttonConfirmarBorrar} onClick={borrarCuenta}>
+              Borrar cuenta<small className={styles.like}> X</small>
             </button>
           </div>
         </div>

@@ -7,6 +7,8 @@ import {TarjetaUsuario, Anuncios, Loader} from "../components/index";
 
 import {getAnunciosGuardados, getAnunciosSubidos} from "../services";
 
+import styles from "../components/Anuncios/anuncio.module.css";
+
 const PerfilUsuario = () => {
   const navigate = useNavigate();
   const {usuario} = useContext(UsuarioContext);
@@ -39,7 +41,7 @@ const PerfilUsuario = () => {
 
       {loading ? (
         <>
-          <h1>Anuncios guardados:</h1>
+          <h1 className={styles.h1}>Anuncios guardados:</h1>
           <Anuncios anuncios={anuncios} guardado={true} />
         </>
       ) : (
@@ -48,7 +50,7 @@ const PerfilUsuario = () => {
 
       {anuncioSubidos ? (
         <>
-          <h1>Anuncios Subidos:</h1>
+          <h1 className={styles.h1}>Anuncios Subidos:</h1>
           <Anuncios anuncios={anuncioSubidos} guardado={false} />
         </>
       ) : (

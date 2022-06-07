@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
-import {ListaAnuncios, Login, Register, PerfilUsuario, RegistroAnuncio} from "./pages/index";
+import {ListaAnuncios, Login, Register, PerfilUsuario, RegistroAnuncio, TarjetaAnuncio} from "./pages/index";
 import {NavTop} from "./components";
 import {comprobarToken} from "./services";
 
@@ -40,6 +40,7 @@ function App() {
                 <Route path="/registro" element={<Register />} />
                 <Route path="/perfil" element={<PerfilUsuario />} />
                 <Route path="/registroanuncio" element={<RegistroAnuncio />} />
+                <Route path="/tarjetanuncio" element={<TarjetaAnuncio />} />
                 <Route path="/" element={<ListaAnuncios />} />
               </Routes>
             </BrowserRouter>

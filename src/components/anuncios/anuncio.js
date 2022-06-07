@@ -1,3 +1,5 @@
+import React, {Link} from "react";
+
 import {useContext} from "react";
 
 import {UsuarioContext} from "../../context/UsuarioContext";
@@ -6,13 +8,12 @@ import {guardarAnuncios, deleteAnuncioGuardado, deleteAnuncio} from "../../servi
 
 import styles from "./anuncio.module.css";
 
-const React = require("react");
-
 function Anuncio(props) {
   let {usuario} = useContext(UsuarioContext);
   const location = window.location.href;
   const {
     guardado,
+    anuncio,
     anuncio: {
       _id,
       titulo,
@@ -48,7 +49,9 @@ function Anuncio(props) {
         </ul>
       </div>
       <div className={styles.product}>
-        <h1 className={styles.h1}>{titulo}</h1>
+        <Link to="/tarjetanuncio" anuncio={anuncio}>
+          <h1 className={styles.h1}>{titulo}</h1>
+        </Link>
         <p className={[styles.desc, styles.p]}>{descripcion}</p>
         <h2 className={styles.h2}>{precioMes} €/mes </h2>
         {location.includes("/perfil") ? (

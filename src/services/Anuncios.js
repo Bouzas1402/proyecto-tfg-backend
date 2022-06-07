@@ -5,23 +5,31 @@ import config from "../config/config";
 import {getTokenStorage} from "../helpers/localStorage";
 
 export const getAnuncios = async () => {
-  const res = await Api({
-    url: `${config.DOMAIN}anuncios`,
-  });
-  return res.data.anuncios;
+  try {
+    const res = await Api({
+      url: `${config.DOMAIN}anuncios`,
+    });
+    return res.data.anuncios;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const setAnuncios = async (values) => {
-  const token = getTokenStorage();
-  const res = await Api({
-    url: `${config.DOMAIN}proyecto/anuncios`,
-    method: "POST",
-    headers: {token: token},
-    data: values,
-  })
-    .then((res) => res.data)
-    .catch((err) => err);
-  return res;
+  try {
+    const token = getTokenStorage();
+    const res = await Api({
+      url: `${config.DOMAIN}proyecto/anuncios`,
+      method: "POST",
+      headers: {token: token},
+      data: values,
+    })
+      .then((res) => res.data)
+      .catch((err) => err);
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const guardarAnuncios = async (idAnuncio) => {
@@ -55,49 +63,65 @@ export const getAllPaginated = async (tamPage, numPage) => {
 };
 
 export const getAnunciosGuardados = async () => {
-  const token = getTokenStorage();
-  const res = await Api({
-    url: `${config.DOMAIN}proyecto/anunciosguardados`,
-    method: "GET",
-    headers: {token: token},
-  })
-    .then((res) => res.data)
-    .catch((err) => err);
-  return res.data;
+  try {
+    const token = getTokenStorage();
+    const res = await Api({
+      url: `${config.DOMAIN}proyecto/anunciosguardados`,
+      method: "GET",
+      headers: {token: token},
+    })
+      .then((res) => res.data)
+      .catch((err) => err);
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const getAnunciosSubidos = async () => {
-  const token = getTokenStorage();
-  const res = await Api({
-    url: `${config.DOMAIN}proyecto/anunciosubidos`,
-    method: "GET",
-    headers: {token: token},
-  })
-    .then((res) => res.data)
-    .catch((err) => err);
-  return res.data;
+  try {
+    const token = getTokenStorage();
+    const res = await Api({
+      url: `${config.DOMAIN}proyecto/anunciosubidos`,
+      method: "GET",
+      headers: {token: token},
+    })
+      .then((res) => res.data)
+      .catch((err) => err);
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const deleteAnuncioGuardado = async (idAnuncio) => {
-  const token = getTokenStorage();
-  const res = await Api({
-    url: `${config.DOMAIN}proyecto/borraranuncioguardado/${idAnuncio}`,
-    method: "DELETE",
-    headers: {token: token},
-  })
-    .then((res) => console.log(res.data))
-    .catch((err) => err);
-  return res.data;
+  try {
+    const token = getTokenStorage();
+    const res = await Api({
+      url: `${config.DOMAIN}proyecto/borraranuncioguardado/${idAnuncio}`,
+      method: "DELETE",
+      headers: {token: token},
+    })
+      .then((res) => console.log(res.data))
+      .catch((err) => err);
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const deleteAnuncio = async (idAnuncio) => {
-  const token = getTokenStorage();
-  const res = await Api({
-    url: `${config.DOMAIN}proyecto/anuncios/${idAnuncio}`,
-    method: "DELETE",
-    headers: {token: token},
-  })
-    .then((res) => res.data)
-    .catch((err) => err);
-  return res.data;
+  try {
+    const token = getTokenStorage();
+    const res = await Api({
+      url: `${config.DOMAIN}proyecto/anuncios/${idAnuncio}`,
+      method: "DELETE",
+      headers: {token: token},
+    })
+      .then((res) => res.data)
+      .catch((err) => err);
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
 };

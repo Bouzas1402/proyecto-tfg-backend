@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {nanoid} from "nanoid";
 
 import {getAllPaginated} from "../services";
-import {Anuncios, Loader} from "../components";
+import {Anuncios, Loader, Banner} from "../components";
 
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -11,7 +11,7 @@ function ListaAnuncios() {
   const [anuncios, setAnuncios] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(0);
-  const [size, setSize] = useState(30);
+  const [size, setSize] = useState(20);
   const [, setEmpty] = useState(false);
 
   async function loadFunc() {
@@ -38,6 +38,7 @@ function ListaAnuncios() {
     <div>
       {
         <>
+          <Banner />
           <Anuncios anuncios={anuncios} key={nanoid()} />
           <InfiniteScroll pageStart={page} loadMore={loadFunc} hasMore={hasMore} loader={<Loader key={nanoid()} />}>
             {""}
