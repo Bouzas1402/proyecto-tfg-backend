@@ -1,8 +1,125 @@
 .container {
-  width: 80%;
+  width: 65%;
   margin: 30px auto;
-  min-height: 1200px;
   background: rgb(253, 238, 214);
   box-shadow: 5px 5px 15px rgba(230, 81, 0);
   border-radius: 10px;
+}
+
+.h1,
+.h2 {
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* Carousel */
+
+.itemcarousel {
+  border: 1px solid black;
+  margin: 0 20px;
+  height: 500px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0;
+  transition: 1s;
+}
+.img2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 1;
+  transition: 1s;
+}
+.loaded {
+  opacity: 1 !important;
+}
+
+.button {
+  position: absolute;
+  top: 37%;
+  background: transparent;
+  color: #000;
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+.button:hover {
+  background: none;
+}
+
+img + button {
+  right: 19.5%;
+}
+
+.p {
+  margin: 30px;
+  line-height: 1.95;
+  font-size: 1.295em;
+}
+
+.lista {
+  counter-reset: li;
+  list-style: none;
+  *list-style: decimal;
+  font: 15px "trebuchet MS", "lucida sans";
+  padding: 0 0 15px 0;
+  margin-bottom: 4em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.lista ol {
+  margin: 0 2em 0 2em;
+}
+
+.lista li {
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 0.8em;
+  *padding: 0.4em;
+  margin: 0.5em 0 0.5em 2.5em;
+  background: #ddd;
+  color: #444;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+.lista li:hover {
+  background: #eee;
+}
+
+.lista li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -2.5em;
+  top: 50%;
+  margin-top: -1em;
+  background: #fa8072;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.lista li:after {
+  position: absolute;
+  content: "";
+  border: 0.5em solid transparent;
+  left: -1em;
+  top: 50%;
+  margin-top: -0.5em;
+  transition: all 0.3s ease-out;
+}
+
+.lista li:hover:after {
+  left: -0.5em;
+  border-left-color: #fa8072;
 }
