@@ -85,12 +85,12 @@ export function RegisterAnuncio() {
           if (equipamiento.length === 0) {
             delete nuevoAnuncio.caracteristicas.equipamiento;
           } else {
-            nuevoAnuncio.caracteristicas.equipamiento = zonasComunes;
+            nuevoAnuncio.caracteristicas.equipamiento = equipamiento;
           }
           if (otros.length === 0) {
             delete nuevoAnuncio.caracteristicas.otros;
           } else {
-            nuevoAnuncio.caracteristicas.otros = zonasComunes;
+            nuevoAnuncio.caracteristicas.otros = otros;
           }
 
           await setAnuncios(nuevoAnuncio);
