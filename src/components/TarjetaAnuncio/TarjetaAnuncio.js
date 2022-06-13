@@ -17,7 +17,6 @@ function TarjetaAnuncio() {
   const [zonasComunes] = useState(location.state.caracteristicas.zonasComunes);
   const [otros] = useState(location.state.caracteristicas.otros);
 
-  console.log(anuncio);
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>

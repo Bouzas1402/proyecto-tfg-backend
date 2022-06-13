@@ -31,7 +31,6 @@ function Carousel(props) {
   const next = () => {
     selectedNewImage(selectedIndex, props.fotos);
   };
-  console.log(loaded);
   return (
     <>
       <div className={styles.itemcarousel}>
